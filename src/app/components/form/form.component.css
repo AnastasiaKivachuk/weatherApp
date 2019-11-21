@@ -1,0 +1,85 @@
+.centerBlock {
+  border: 1px black solid;
+  border-radius: 20px;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 5%;
+  background: #E6E6FA;
+  padding: 5% 0;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 2px;
+}
+
+.mainForName{
+  border: 1px black solid;
+  padding: 3px 0;
+  margin: 0 -1px -1px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.heading {
+  border: 1px black solid;
+  padding: 3px 0;
+  margin: 0 -1px -1px 0;
+  text-align: center;
+}
+
+.buttons{
+
+  padding: 10px 20px;
+  width:auto;
+  text-decoration:none;
+  text-align:center;
+  margin:20px auto;
+  display: block;
+  background-image: linear-gradient(to left,transparent,transparent 50%,#00c6ff 50%,#00c6ff);
+
+  background-size: 200% 100%;
+  transition: all .25s ease-in;
+  /*font: 400 18px tahoma;*/
+  border: 1px solid #00C6FF;
+  background-position: 0 0;
+  color:#fff;
+}
+.buttons:disabled {
+  background-position: 100% 0;
+  color:#00c6ff;
+}
+
+.wrapButtons {
+  display: flex;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-top: 20px;
+}
+
+.bigWrap {
+  display: flex;
+  justify-content: center;
+}
+
+h3{
+  text-align: center;
+}
+
+.hideBlock{
+  display: none;
+}
+.showBlock{
+  display: block;
+}

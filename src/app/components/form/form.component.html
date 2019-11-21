@@ -1,0 +1,22 @@
+<div class="centerBlock">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+    <div class="form-group dateInput">
+      <label>Напишите город</label><br>
+      <input type="text" class="form-control" name="city" formControlName="city" />
+      <div class="alert alert-danger" *ngIf="myForm.controls['city'].invalid && myForm.controls['city'].touched">
+        Не указан город
+      </div>
+<!--      autocomplete="off"-->
+    </div>
+    <div class="form-group">
+    <label for="day"><input name="day" type="radio" value="today" id="day" formControlName="day" checked>Сегодня</label>
+    <label for="tomorrow"><input name="day" type="radio" value="tomorrow" id="tomorrow" formControlName="day" >Завтра</label>
+    </div>
+    <div class="form-group">
+      <button class="buttons" [disabled]="myForm.invalid">
+        Отправить
+      </button>
+    </div>
+  </form>
+
+</div>

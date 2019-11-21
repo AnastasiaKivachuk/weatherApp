@@ -1,0 +1,16 @@
+
+<div class="centerBlock" *ngIf="this.ready===false && this.errorMassage===false">
+    <p>Please, wait</p>
+  </div>
+<div class="centerBlock" *ngIf="this.errorMassage===true">
+  <p>Введите корректное название города</p>
+  <button class="buttons" (click)="openForm()">Ок</button>
+</div>
+<div *ngFor="let itemMainInfo of mainInfo">
+<div class="centerBlock" *ngIf="this.ready===true">
+  <div *ngFor="let keyOfObj of objectKeys(itemMainInfo)">
+  <p>{{keyOfObj}}: {{itemMainInfo[keyOfObj]}}</p>
+  </div>
+</div>
+  <button class="buttons" (click)="openForm()">try again</button>
+</div>
