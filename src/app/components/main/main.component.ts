@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../../services/service.service';
 import {ObjDay} from '../../services/objDay';
-import {HttpClient} from '@angular/common/http';
-import {Observable, forkJoin} from 'rxjs';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +13,8 @@ export class MainComponent implements OnInit {
   public ready = false;
   public errorMassage = false;
   public objectKeys = Object.keys;
+  public dateArr: string[];
+  public textErrorMassage: string;
 
 
   constructor(public service: ServiceService) {
@@ -22,27 +23,19 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     forkJoin(this.service.getData())
       .subscribe((data) => {
-        console.log(data);
+        console.log(data[0].weather[0].icon);
         this.mainInfo = data.map((item) => {
-          const {name, main: {temp, pressure, humidity, temp_min, temp_max}} = item;
-          return new ObjDay(name, pressure, temp, humidity, temp_min, temp_max);
-          // this.mainInfo.name = item.name;
-          // this.mainInfo.temp = item.main.temp;
-          // this.mainInfo.pressure = item.main.pressure;
-          // this.mainInfo.humidity = item.main.humidity;
-          // this.mainInfo.tempMin = item.main.temp_min;
-          // this.mainInfo.tempMax = item.main.temp_max;
-          // console.log(1);
-
+          const {name, weather: [{icon}], main: {temp, pressure, humidity, temp_min, temp_max}} = item;
+          return new ObjDay(name, icon, pressure, temp, humidity, temp_min, temp_max);
         });
         console.log(this.mainInfo);
         this.ready = true;
-        console.log(this.service.getDate());
-        console.log(this.objectKeys(this.mainInfo));
       }, err => {
         console.log('HTTP Error', err);
         this.errorMassage = true;
+        this.textErrorMassage = err.status === 404 ? `Введите корректное название города` : err.message;
       });
+    this.dateArr = this.service.getDate();
   }
 
   openForm() {

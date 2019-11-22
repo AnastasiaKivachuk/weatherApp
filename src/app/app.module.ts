@@ -8,12 +8,14 @@ import {MainComponent} from './components/main/main.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceService} from './services/service.service';
+import { CutNamePipe } from './pipes/cut-name.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    MainComponent
+    MainComponent,
+    CutNamePipe
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,14 @@
   background: #E6E6FA;
   padding: 5% 0;
 }
+.centerBlock1 {
+  text-align: center;
+  background: #E6E6FA;
+  padding: 5% 0;
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
+}
 .buttons{
   color:#00c6ff;
   padding: 10px 20px;

@@ -3,14 +3,24 @@
     <p>Please, wait</p>
   </div>
 <div class="centerBlock" *ngIf="this.errorMassage===true">
-  <p>Введите корректное название города</p>
+  <p>{{textErrorMassage}}</p>
   <button class="buttons" (click)="openForm()">Ок</button>
 </div>
-<div *ngFor="let itemMainInfo of mainInfo">
 <div class="centerBlock" *ngIf="this.ready===true">
-  <div *ngFor="let keyOfObj of objectKeys(itemMainInfo)">
-  <p>{{keyOfObj}}: {{itemMainInfo[keyOfObj]}}</p>
+
+  <h3>{{mainInfo[0].name}}</h3>
+  <div class="centerBlock1" >
+<div *ngFor="let itemMainInfo of mainInfo; let i=index">
+<div >
+  <div>{{dateArr[i]}}</div>
+  <img src="http://openweathermap.org/img/wn/{{itemMainInfo.icon}}.png">
+  <div *ngFor="let keyOfObj of objectKeys(itemMainInfo) | cutName">
+  <p >{{keyOfObj}}: {{itemMainInfo[keyOfObj]}}</p>
   </div>
+</div>
+</div>
 </div>
   <button class="buttons" (click)="openForm()">try again</button>
 </div>
+
+
